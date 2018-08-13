@@ -1,11 +1,5 @@
-# Intellij
-.idea/
-*.iml
-*.iws
+udf/.settings
+udf/.vscode
+udf/target
  
-# Mac
-.DS_Store
- 
-# Maven
-log/
-target
+
