@@ -11,7 +11,7 @@ import org.apache.drill.exec.expr.holders.VarCharHolder;
 import javax.inject.Inject;
 
 @FunctionTemplate(
-        name = "merger",
+        name = "MERGE_FIELDS",
         scope = FunctionTemplate.FunctionScope.SIMPLE,
         nulls = FunctionTemplate.NullHandling.NULL_IF_NULL
 )

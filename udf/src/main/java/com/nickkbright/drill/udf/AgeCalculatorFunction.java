@@ -5,14 +5,13 @@ import org.apache.drill.exec.expr.DrillSimpleFunc;
 import org.apache.drill.exec.expr.annotations.FunctionTemplate;
 import org.apache.drill.exec.expr.annotations.Output;
 import org.apache.drill.exec.expr.annotations.Param;
-import org.apache.drill.exec.expr.holders.IntHolder;
 import org.apache.drill.exec.expr.holders.NullableVarCharHolder;
 import org.apache.drill.exec.expr.holders.VarCharHolder;
 
 import javax.inject.Inject;
 
 @FunctionTemplate(
-        name="getage",
+        name="GET_AGE",
         scope = FunctionTemplate.FunctionScope.SIMPLE,
         nulls = FunctionTemplate.NullHandling.NULL_IF_NULL
 )
@@ -21,12 +20,7 @@ public class AgeCalculatorFunction implements DrillSimpleFunc {
 
     @Param
     NullableVarCharHolder date;
-    @Param(constant = true)
-    IntHolder year;
-    @Param(constant = true)
-    IntHolder month;
-    @Param(constant = true)
-    IntHolder day;
+   
     @Output
     VarCharHolder out;
 
@@ -37,9 +31,9 @@ public class AgeCalculatorFunction implements DrillSimpleFunc {
     }
     public void eval() {
         String date_string = org.apache.drill.exec.expr.fn.impl.StringFunctionHelpers.toStringFromUTF8(date.start, date.end, date.buffer);
-            int year_value = year.value;
-            int month_value = month.value;
-            int day_value = day.value;
+            int year_value = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
+            int month_value = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH);
+            int day_value = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH);
             int age;
 
             String[] date_parts = date_string.split("-");

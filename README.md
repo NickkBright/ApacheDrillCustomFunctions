@@ -1,7 +1,7 @@
 # ApacheDrillCustomFunctions
 Custom functions for Apache Drill
 1) Age Calculator Function
-2) Uppercase varchar data
-3) Merge varchars from 2 rows
+2) VarCharMerger
+3) Get data via http-request
 
-To run: mvn clean package
+To run: mvn package
